@@ -4,7 +4,7 @@ public class Client {
     int phoneNumber;
     int clientID;
 
-    public void printClientInto()
+    public void printClientInfo()
     {
         System.out.println("Client ID: "+this.clientID);
         System.out.println("Client Name: "+this.clentName);
