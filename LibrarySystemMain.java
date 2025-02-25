@@ -19,6 +19,7 @@ public class LibrarySystemMain{
             System.out.println("5. Exit");
             System.out.println("Enter your choice: ");
             choice = scanner.nextInt(); //Reading the next input int
+            //TODO: create the switch loop
         }
     }
 }
