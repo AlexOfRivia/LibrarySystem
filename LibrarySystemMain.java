@@ -10,7 +10,7 @@ public class LibrarySystemMain{
         ArrayList<Book> books = new ArrayList<Book>(); //book vector
         ArrayList<Client> clients = new ArrayList<Client>(); //client vector
 
-        while(choice!=5)
+        while(choice!=6)
         {
             //Main menu
             System.out.println("\n  Library System");
@@ -18,7 +18,8 @@ public class LibrarySystemMain{
             System.out.println("2. Show Clients");
             System.out.println("3. Search Options");
             System.out.println("4. Editing Options");
-            System.out.println("5. Exit");
+            System.out.println("5. Save/Load Library");
+            System.out.println("6. Exit");
             System.out.println("Enter your choice: ");
             choice = scanner.nextInt(); //Reading the next input int
             switch (choice) {
@@ -114,8 +115,12 @@ public class LibrarySystemMain{
                         }
                     break;
                 }
-
                 case 5:
+                {
+
+                    break;
+                }
+                case 6:
                 {
                     System.out.println("Thank you for using our library system!");
                     break;
