@@ -32,8 +32,8 @@ public class LibrarySystemMain{
                     } else {
                         for(int i=0;i<books.size();i++)
                         {
-                            System.out.println(i+1);
-                            clients.get(i).printClientInfo(); //print i-th book info
+                            System.out.println("\n"+(i+1)+".");
+                            books.get(i).printBookInfo(); //print i-th book info
                         }
                     }
                     break;
@@ -49,7 +49,7 @@ public class LibrarySystemMain{
                     } else {
                         for(int i=0; i<clients.size(); i++)
                         {
-                            System.out.println(i+1);
+                            System.out.println("\n"+(i+1)+".");
                             clients.get(i).printClientInfo(); //print i-th client info
                         }
                     }
@@ -75,12 +75,22 @@ public class LibrarySystemMain{
                         switch (choice2) {
                             case 1:
                             {
-                                
+                                System.out.println("How many books do you want to add?");
+                                int amount = scanner.nextInt();
+                                for(int i=0;i<amount;i++)
+                                {
+                                    books.add(new Book());
+                                }
                                 break;
                             }
                             case 2:
                             {
-
+                                System.out.println("How many clients do you want to add?");
+                                int amount = scanner.nextInt();
+                                for(int i=0;i<amount;i++)
+                                {
+                                    clients.add(new Client());
+                                }
                                 break;
                             }
                             case 3:
