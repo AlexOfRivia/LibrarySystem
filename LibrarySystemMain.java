@@ -101,7 +101,57 @@ public class LibrarySystemMain{
                             }
                             case 4:
                             {
-
+                                int choice3=0;
+                                System.out.println("\n  Editing Options");
+                                System.out.println("1. Remove Book");
+                                System.out.println("2. Remove Client");
+                                System.out.println("3. Return");
+                                System.out.println("Enter your choice: ");
+                                choice3 = scanner.nextInt();
+                                switch (choice3) {
+                                    case 1:
+                                    {
+                                        if(books.isEmpty()==true)
+                                        {
+                                            System.out.println("There are no books in the system - Try adding some!");
+                                            break;
+                                        } else {    
+                                            for(int i=0;i<books.size();i++)
+                                            {
+                                                System.out.println("\n"+(i+1)+".");
+                                                books.get(i).printBookInfo(); //print i-th book info
+                                            }
+                                            System.out.println("Enter the book number you want to remove: ");
+                                            int bookNumber = scanner.nextInt();
+                                            books.remove(bookNumber-1);
+                                        }
+                                        break;
+                                    }
+                                    case 2:
+                                    {
+                                        if(clients.isEmpty()==true)
+                                        {
+                                            System.out.println("There are no clients in the system - Try adding some!");
+                                            break;
+                                        } else { 
+                                            for(int i=0;i<clients.size();i++)
+                                            {
+                                                System.out.println("\n"+(i+1)+".");
+                                                clients.get(i).printClientInfo(); //print i-th book info
+                                            }
+                                            System.out.println("Enter the client number you want to remove: ");
+                                            int clientNumber = scanner.nextInt();
+                                            clients.remove(clientNumber-1);
+                                        }
+                                        break;
+                                    }
+                                    case 3:
+                                    {
+                                        break;
+                                    }
+                                    default:
+                                        break;
+                                }
                                 break;
                             }
                             case 5:
