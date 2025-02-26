@@ -1,7 +1,27 @@
 import java.util.ArrayList; //Vectors
 import java.util.Scanner; //gettng input
+import java.io.FileInputStream; //file input stream
+import java.io.FileOutputStream; //file output stream
+import java.io.ObjectInputStream; //object input stream
+import java.io.ObjectOutputStream; //object output stream
+import java.io.IOException; //input output exception
+
+
 
 public class LibrarySystemMain{
+
+    //Saving the library details to a file
+    public static void saveLibrary(ArrayList<Book> books, ArrayList<Client> clients)
+    {
+        
+    }
+
+    //Loading the library details from a file
+    public static void loadLibrary(ArrayList<Book> books, ArrayList<Client> clients)
+    {
+        
+    }
+    
     public static void main(String[] args){
         int choice=0;
         int choice2=0;
@@ -357,7 +377,31 @@ public class LibrarySystemMain{
                 }
                 case 5:
                 {
-
+                    //Saving and loading library to a file
+                    System.out.println("\n  Save/Load Library");
+                    System.out.println("1. Save Library");
+                    System.out.println("2. Load Library");
+                    System.out.println("3. Return");
+                    System.out.println("Enter your choice: ");
+                    choice2 = scanner.nextInt();
+                    switch (choice2) {
+                        case 1:
+                        {
+                            LibrarySystemMain.saveLibrary(books, clients); //Saving the library
+                            break;
+                        }
+                        case 2:
+                        {
+                            LibrarySystemMain.loadLibrary(books, clients); //Loading the library
+                            break;
+                        }
+                        case 3:
+                        {
+                            break;
+                        }
+                        default:
+                            break;
+                    }
                     break;
                 }
                 case 6:
@@ -371,4 +415,5 @@ public class LibrarySystemMain{
         }
         scanner.close(); //Closing the scanner
     }
+
 }
