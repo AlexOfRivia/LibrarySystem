@@ -7,7 +7,10 @@ import java.io.ObjectOutputStream; //object output stream
 import java.io.IOException; //input output exception
 
 
-
+/*TODO:
+ - Add asking for the file name when saving/loading the library
+ - Add loading the library from a file
+ */
 public class LibrarySystemMain{
 
     //Saving the library details to a file
