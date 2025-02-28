@@ -1,11 +1,12 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.Serializable;
 
-public class Client {
+public class Client implements Serializable{
     String clentName;
     String email;
     int phoneNumber;
     int clientID;
-    Scanner clientScanner = new Scanner(System.in);
+    transient Scanner clientScanner = new Scanner(System.in);
 
     public Client()
     {

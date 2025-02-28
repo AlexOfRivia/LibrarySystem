@@ -13,7 +13,13 @@ public class LibrarySystemMain{
     //Saving the library details to a file
     public static void saveLibrary(ArrayList<Book> books, ArrayList<Client> clients)
     {
-        
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("librarySave.ser"))) {
+            oos.writeObject(books); //Writing the books vector to the file
+            oos.writeObject(clients); //Writing the clients vector to the file
+            System.out.println("Library saved successfully!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //Loading the library details from a file
@@ -98,7 +104,7 @@ public class LibrarySystemMain{
                                 System.out.println("2. Search by author");
                                 System.out.println("3. Search by genre");
                                 System.out.println("4. Search by year");
-                                System.out.println("5. Search by ISBN");
+                                System.out.println("5. Search by ID");
                                 System.out.println("6. Return");
                                 System.out.println("Enter your choice: ");
                                 int choice3 = scanner.nextInt();
@@ -157,11 +163,11 @@ public class LibrarySystemMain{
                                     }
                                     case 5:
                                     {
-                                        System.out.println("Enter the book ISBN you want to search: ");
-                                        double bookISBN = scanner.nextDouble();
+                                        System.out.println("Enter the book ID you want to search: ");
+                                        double searchID = scanner.nextDouble();
                                         for(int i=0;i<books.size();i++)
                                         {
-                                            if(books.get(i).ISBN==bookISBN)
+                                            if(books.get(i).bookID==searchID)
                                             {
                                                 books.get(i).printBookInfo();
                                             }

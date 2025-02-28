@@ -1,12 +1,13 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.Serializable;
 
-public class Book {
+public class Book implements Serializable {
     String title;
     String author;
     String genre;
     int year=0;
-    double ISBN=0;
-    Scanner bookScanner = new Scanner(System.in);
+    int bookID=0;
+    transient Scanner bookScanner = new Scanner(System.in);
 
     public Book()
     {
@@ -21,10 +22,10 @@ public class Book {
             System.out.println("Enter Release Year: ");
             this.year = bookScanner.nextInt();
         }
-        while(this.ISBN > 9999999999999.0 || this.ISBN<1000000000000.0)
+        while(this.bookID <=0)
         {
-            System.out.println("Enter ISBN: "); 
-            ISBN = bookScanner.nextDouble();
+            System.out.println("Enter Book ID: "); 
+            bookID = bookScanner.nextInt();
         }
     }
     
@@ -36,6 +37,6 @@ public class Book {
         System.out.println("Author: "+this.author);
         System.out.println("Release Year: "+this.year);
         System.out.println("Genre: "+this.genre);
-        System.out.println("ISBN: "+this.ISBN);  
+        System.out.println("ID: "+this.bookID);  
     }
 }
