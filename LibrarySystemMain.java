@@ -16,14 +16,25 @@ public class LibrarySystemMain{
     //Saving the library details to a file
     public static void saveLibrary(ArrayList<Book> books, ArrayList<Client> clients)
     {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("librarySave.ser"))) {
-            oos.writeObject(books); //Writing the books vector to the file
-            oos.writeObject(clients); //Writing the clients vector to the file
-            System.out.println("Library saved successfully!");
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(books.isEmpty()==true && clients.isEmpty()==true)
+        {
+            System.out.println("You currently have no data in the library - Try adding some books or clients first!");
+            return;
+        } else {
+
+            Scanner saveScanner = new Scanner(System.in);
+            System.out.println("Enter the file name you want to save the library to: ");
+            String fileName = saveScanner.next(); //Reading the file name
+            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+                oos.writeObject(books); //Writing the books vector to the file
+                oos.writeObject(clients); //Writing the clients vector to the file
+                System.out.println("Library saved successfully!");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
+
 
     //Loading the library details from a file
     public static void loadLibrary(ArrayList<Book> books, ArrayList<Client> clients)
