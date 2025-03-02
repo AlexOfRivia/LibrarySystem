@@ -2,7 +2,7 @@
 # LibrarySystem
 
 
-I have made this project as a sort of Java practice. I was originally planning to make a GUI for this app, howevr I decided to leave for my next project, just to not overcomplicate things.
+I have made this project as a sort of Java practice. I was originally planning to make a GUI for this app, however I decided to leave for my next project, just to not overcomplicate things.
 
 ##Features
 
