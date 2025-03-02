@@ -6,11 +6,6 @@ import java.io.ObjectInputStream; //object input stream
 import java.io.ObjectOutputStream; //object output stream
 import java.io.IOException; //input output exception
 
-
-/*TODO:
- - Add asking for the file name when saving/loading the library
- - Add loading the library from a file
- */
 public class LibrarySystemMain{
 
     //Saving the library details to a file
@@ -29,7 +24,7 @@ public class LibrarySystemMain{
                 oos.writeObject(books); //Writing the books vector to the file
                 oos.writeObject(clients); //Writing the clients vector to the file
                 System.out.println("Library saved successfully!");
-            } catch (IOException e) {
+            } catch (IOException e) {   
                 e.printStackTrace();
             }
         }
@@ -39,7 +34,22 @@ public class LibrarySystemMain{
     //Loading the library details from a file
     public static void loadLibrary(ArrayList<Book> books, ArrayList<Client> clients)
     {
-        
+        System.out.println("Enter the file name you want to load the library from: ");
+        Scanner loadScanner = new Scanner(System.in);
+        String fileName = loadScanner.next(); //Reading the file name
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            ArrayList<Book> loadedBooks = new ArrayList<Book>(); //book vector
+            ArrayList<Client> loadedClients = new ArrayList<Client>(); //client vector
+            loadedBooks = (ArrayList<Book>) ois.readObject(); //Reading the books vector from the file
+            loadedClients = (ArrayList<Client>) ois.readObject(); //Reading the clients vector from the file
+            books.clear(); //Clearing the books vector
+            clients.clear(); //Clearing the clients vector
+            books.addAll(loadedBooks); //Adding the loaded books to the books vector
+            clients.addAll(loadedClients); //Adding the loaded clients to the clients vector
+            System.out.println("Library loaded successfully!");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
     
     public static void main(String[] args){
